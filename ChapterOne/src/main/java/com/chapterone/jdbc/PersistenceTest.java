@@ -15,12 +15,12 @@ public class PersistenceTest {
     }
     @BeforeClass
     public void setup() {
-        final String DROP = "DROP TABLE IF EXISTS messages";
+        final String DROP = "DROP TABLE IF EXISTS messages;";
         final String CREATE = "create table messages(" +
                 "id bigint auto_increment," +
                 "text varchar(256) not null," +
                 "constraint messages_pk" +
-                " primary key (id)\n);";
+                " primary key (id));";
         try (Connection connection = getConnection()) {
 // clear out the old data, if any, so we know the state of the DB
             try (PreparedStatement ps =
@@ -83,7 +83,7 @@ public class PersistenceTest {
         }
         assertEquals(list.size(), 1);
         for (MessageEntity m : list) {
-            System.out.println(m);
+            System.out.printf("Id: %s, Text: %s", m.getId().toString(), m.getText());
         }
         assertEquals(list.get(0), message);
     }
