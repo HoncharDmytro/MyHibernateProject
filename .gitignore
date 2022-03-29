@@ -13,3 +13,9 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 /lib/
+/ChapterOne/target/
+/ChapterOne/${project.build.directory}/
+/ChapterTwo/${project.build.directory}/
+/ChapterThree/target/
+/ChapterThree/${project.build.directory}/
+/ChapterTwo/target/
