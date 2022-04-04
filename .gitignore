@@ -19,3 +19,49 @@ buildNumber.properties
 /ChapterThree/target/
 /ChapterThree/${project.build.directory}/
 /ChapterTwo/target/
+/my-util/target/surefire-reports/bullet_point.png
+/my-util/target/surefire-reports/old/Command line suite/classes.html
+/my-util/target/surefire-reports/collapseall.gif
+/my-util/target/surefire-reports/Command line suite/Command line test.html
+/my-util/target/surefire-reports/old/Command line suite/Command line test.properties
+/my-util/target/surefire-reports/Command line suite/Command line test.xml
+/my-util/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+/my-util/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+/my-util/target/surefire-reports/emailable-report.html
+/my-util/target/surefire-reports/failed.png
+/my-util/target/surefire-reports/old/Command line suite/groups.html
+/my-util/target/test-classes/hibernate.cfg.xml
+/my-util/target/surefire-reports/old/Command line suite/index.html
+/my-util/target/surefire-reports/old/index.html
+/my-util/target/surefire-reports/index.html
+/my-util/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+/my-util/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+/my-util/target/classes/org/honchar/jpa/util/JPASessionUtil.class
+/my-util/target/test-classes/org/honchar/jpa/util/JPASessionUtilTest.class
+/my-util/target/surefire-reports/jquery.min.js
+/my-util/target/surefire-reports/old/Command line suite/main.html
+/my-util/target/surefire-reports/old/Command line suite/methods.html
+/my-util/target/surefire-reports/old/Command line suite/methods-alphabetical.html
+/my-util/target/surefire-reports/old/Command line suite/methods-not-run.html
+/my-util/target/surefire-reports/navigator-bullet.png
+/my-util/target/surefire-reports/passed.png
+/my-util/target/test-classes/META-INF/persistence.xml
+/my-util/target/surefire-reports/old/Command line suite/reporter-output.html
+/my-util/target/test-classes/org/honchar/hibernate/util/SessionBuilderTest.class
+/my-util/target/classes/org/honchar/hibernate/util/SessionUtil.class
+/my-util/target/surefire-reports/skipped.png
+/my-util/target/surefire-reports/junitreports/TEST-org.honchar.hibernate.util.SessionBuilderTest.xml
+/my-util/target/surefire-reports/junitreports/TEST-org.honchar.jpa.util.JPASessionUtilTest.xml
+/my-util/target/surefire-reports/TEST-TestSuite.xml
+/my-util/target/surefire-reports/testng.css
+/my-util/target/surefire-reports/old/Command line suite/testng.xml.html
+/my-util/target/surefire-reports/Command line suite/testng-failed.xml
+/my-util/target/surefire-reports/testng-failed.xml
+/my-util/target/surefire-reports/testng-reports.css
+/my-util/target/surefire-reports/testng-reports.js
+/my-util/target/surefire-reports/testng-reports1.css
+/my-util/target/surefire-reports/testng-reports2.js
+/my-util/target/surefire-reports/testng-results.xml
+/my-util/target/surefire-reports/TestSuite.txt
+/my-util/target/test-classes/org/honchar/util/model/Thing.class
+/my-util/target/surefire-reports/old/Command line suite/toc.html
