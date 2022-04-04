@@ -13,6 +13,7 @@
         <module>ChapterOne</module>
         <module>ChapterTwo</module>
         <module>ChapterThree</module>
+        <module>my-util</module>
     </modules>
 
     <properties>
@@ -40,6 +41,7 @@
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
+
 
             <dependency>
                 <groupId>org.hibernate.orm</groupId>
@@ -147,6 +149,7 @@
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-hikaricp</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>

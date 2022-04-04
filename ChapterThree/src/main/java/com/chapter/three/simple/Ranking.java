@@ -1,14 +1,13 @@
 package com.chapter.three.simple;
 
-import java.util.Objects;
-
 public class Ranking {
-    private Person subject;
-    private Person observer;
-    private Skill skill;
-    private Integer ranking;
+    Person subject;
+    Person observer;
+    Skill skill;
+    Integer ranking;
 
-    public Ranking() { }
+    public Ranking() {
+    }
 
     public Person getSubject() {
         return subject;
@@ -50,19 +49,5 @@ public class Ranking {
                 ", skill=" + skill +
                 ", ranking=" + ranking +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ranking ranking1 = (Ranking) o;
-        return Objects.equals(subject, ranking1.subject) && Objects.equals(observer, ranking1.observer) &&
-                Objects.equals(skill, ranking1.skill) && Objects.equals(ranking, ranking1.ranking);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(subject, observer, skill, ranking);
     }
 }

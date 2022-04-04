@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 public class PersonTest {
     SessionFactory factory;
+
     @BeforeClass
     public void setup() {
         StandardServiceRegistry registry =
@@ -21,13 +22,16 @@ public class PersonTest {
                 .buildMetadata()
                 .buildSessionFactory();
     }
+
     @Test
     public void testSavePerson() {
         try (Session session = factory.openSession()) {
             Transaction tx = session.beginTransaction();
             Person person = new Person();
             person.setName("J. C. Smell");
-            session.persist(person);//save() is deprecated
+
+            session.save(person);
+
             tx.commit();
         }
     }

@@ -10,14 +10,16 @@ import org.hibernate.query.Query;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import java.util.IntSummaryStatistics;
 import java.util.stream.Collectors;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
 public class RankingTest {
-
     private SessionFactory factory;
+
     @BeforeMethod
     public void setup() {
         StandardServiceRegistry registry =
@@ -39,38 +41,47 @@ public class RankingTest {
     public void testSaveRanking() {
         try (Session session = factory.openSession()) {
             Transaction tx = session.beginTransaction();
+
             Person subject = savePerson(session, "J. C. Smell");
             Person observer = savePerson(session, "Drew Lombardo");
             Skill skill = saveSkill(session, "Java");
+
             Ranking ranking = new Ranking();
             ranking.setSubject(subject);
             ranking.setObserver(observer);
             ranking.setSkill(skill);
             ranking.setRanking(8);
-            session.persist(ranking);
+            session.save(ranking);
+
             tx.commit();
         }
     }
-//end::testSaveRanking[]
-//tag::testRankings[]
+    //end::testSaveRanking[]
+
+    //tag::testRankings[]
     @Test
     public void testRankings() {
         populateRankingData();
         try (Session session = factory.openSession()) {
             Transaction tx = session.beginTransaction();
+
             Query<Ranking> query = session.createQuery(
                     "from Ranking r "
                             + "where r.subject.name=:name "
                             + "and r.skill.name=:skill", Ranking.class);
             query.setParameter("name", "J. C. Smell");
+
             query.setParameter("skill", "Java");
+
             IntSummaryStatistics stats = query.list()
                     .stream()
                     .collect(
                             Collectors.summarizingInt(Ranking::getRanking)
                     );
+
             long count = stats.getCount();
             int average = (int) stats.getAverage();
+
             tx.commit();
             session.close();
             assertEquals(count, 3);
@@ -78,7 +89,8 @@ public class RankingTest {
         }
     }
     //end::testRankings[]
-//tag::changeRanking[]
+
+    //tag::changeRanking[]
     @Test
     public void changeRanking() {
         populateRankingData();
@@ -100,7 +112,8 @@ public class RankingTest {
         assertEquals(getAverage("J. C. Smell", "Java"), 8);
     }
     //end::changeRanking[]
-//tag::removeRanking[]
+
+    //tag::removeRanking[]
     @Test
     public void removeRanking() {
         populateRankingData();
@@ -115,28 +128,33 @@ public class RankingTest {
         assertEquals(getAverage("J. C. Smell", "Java"), 7);
     }
     //end::removeRanking[]
-//tag::getAverage[]
+
+    //tag::getAverage[]
     private int getAverage(String subject, String skill) {
         try (Session session = factory.openSession()) {
             Transaction tx = session.beginTransaction();
+
             Query<Ranking> query = session.createQuery(
                     "from Ranking r "
                             + "where r.subject.name=:name "
                             + "and r.skill.name=:skill", Ranking.class);
             query.setParameter("name", subject);
             query.setParameter("skill", skill);
+
             IntSummaryStatistics stats = query.list()
                     .stream()
                     .collect(
                             Collectors.summarizingInt(Ranking::getRanking)
                     );
+
             int average = (int) stats.getAverage();
             tx.commit();
             return average;
         }
     }
     //end::getAverage[]
-//tag::populateRankingData[]
+
+    //tag::populateRankingData[]
     private void populateRankingData() {
         try (Session session = factory.openSession()) {
             Transaction tx = session.beginTransaction();
@@ -146,6 +164,7 @@ public class RankingTest {
             tx.commit();
         }
     }
+
     private void createData(Session session,
                             String subjectName,
                             String observerName,
@@ -154,6 +173,7 @@ public class RankingTest {
         Person subject = savePerson(session, subjectName);
         Person observer = savePerson(session, observerName);
         Skill skill = saveSkill(session, skillName);
+
         Ranking ranking = new Ranking();
         ranking.setSubject(subject);
         ranking.setObserver(observer);
@@ -162,7 +182,8 @@ public class RankingTest {
         session.save(ranking);
     }
     //end::populateRankingData[]
-//tag::findPerson[]
+
+    //tag::findPerson[]
     private Person findPerson(Session session, String name) {
         Query<Person> query = session.createQuery(
                 "from Person p where p.name=:name",
@@ -173,8 +194,8 @@ public class RankingTest {
         return person;
     }
     //end::findPerson[]
-    private Skill findSkill(Session session, String name) {
 
+    private Skill findSkill(Session session, String name) {
         Query<Skill> query = session.createQuery(
                 "from Skill s where s.name=:name",
                 Skill.class
@@ -183,6 +204,7 @@ public class RankingTest {
         Skill skill = query.uniqueResult();
         return skill;
     }
+
     private Skill saveSkill(Session session, String skillName) {
         Skill skill = findSkill(session, skillName);
         if (skill == null) {
@@ -192,6 +214,7 @@ public class RankingTest {
         }
         return skill;
     }
+
     //tag::savePerson[]
     private Person savePerson(Session session, String name) {
         Person person = findPerson(session, name);
@@ -203,7 +226,8 @@ public class RankingTest {
         return person;
     }
     //end::savePerson[]
-//tag::findRanking[]
+
+    //tag::findRanking[]
     private Ranking findRanking(Session session,
                                 String subject, String observer, String skill) {
         Query<Ranking> query = session.createQuery(
@@ -217,5 +241,6 @@ public class RankingTest {
         Ranking ranking = query.uniqueResult();
         return ranking;
     }
-//end::findRanking[]
+    //end::findRanking[]
+
 }

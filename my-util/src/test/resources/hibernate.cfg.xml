@@ -14,6 +14,6 @@
         <property name="show_sql">true</property>
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create-drop</property>
-        <mapping class="chapter.two.hibernate.Message"/>
+        <mapping class="org.honchar.util.model.Thing"/>
     </session-factory>
 </hibernate-configuration>

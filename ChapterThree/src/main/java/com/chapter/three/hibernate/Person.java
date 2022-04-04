@@ -5,14 +5,16 @@ import java.util.Objects;
 
 @Entity
 public class Person {
+    @Column(unique = true)
+    private String name;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique = true)
-    private String name;
 
-    public Person() {}
+    public Person() {
+    }
 
+    //end::boilerplate1[]
     public Long getId() {
         return id;
     }
@@ -32,21 +34,23 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Person)) return false;
         Person person = (Person) o;
-        return Objects.equals(name, person.name) && Objects.equals(id, person.id);
+        return Objects.equals(getName(), person.getName()) && Objects.equals(getId(), person.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, id);
+        return Objects.hash(getName(), getId());
     }
+
+    //tag::boilerplate2[]
 }

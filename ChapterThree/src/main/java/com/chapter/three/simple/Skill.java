@@ -1,9 +1,10 @@
 package com.chapter.three.simple;
 
 public class Skill {
-    private String name;
+    String name;
 
-    public Skill() {}
+    public Skill() {
+    }
 
     public String getName() {
         return name;
@@ -13,4 +14,10 @@ public class Skill {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }
