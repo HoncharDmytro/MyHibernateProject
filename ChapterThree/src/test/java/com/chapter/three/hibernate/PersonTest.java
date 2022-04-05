@@ -30,7 +30,7 @@ public class PersonTest {
             Person person = new Person();
             person.setName("J. C. Smell");
 
-            session.save(person);
+            session.persist(person);
 
             tx.commit();
         }

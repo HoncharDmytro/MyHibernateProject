@@ -78,7 +78,7 @@ public class HibernateRankingService implements RankingService {
         ranking.setObserver(observer);
         ranking.setSkill(skill);
         ranking.setRanking(rank);
-        session.save(ranking);
+        session.persist(ranking);
     }
     //end::addRanking[]
 
@@ -124,7 +124,7 @@ public class HibernateRankingService implements RankingService {
         Ranking ranking = findRanking(session, subject,
                 observer, skill);
         if (ranking != null) {
-            session.delete(ranking);
+            session.remove(ranking);
         }
     }
     //end::removeRanking[]
@@ -236,7 +236,7 @@ public class HibernateRankingService implements RankingService {
         if (skill == null) {
             skill = new Skill();
             skill.setName(skillName);
-            session.save(skill);
+            session.persist(skill);
         }
         return skill;
     }
@@ -246,7 +246,7 @@ public class HibernateRankingService implements RankingService {
         if (person == null) {
             person = new Person();
             person.setName(name);
-            session.save(person);
+            session.persist(person);
         }
         return person;
     }

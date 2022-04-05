@@ -1,6 +1,7 @@
 package org.honchar.hibernate.util;
 
 
+
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.honchar.util.model.Thing;
