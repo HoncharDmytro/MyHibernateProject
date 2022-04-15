@@ -3,6 +3,7 @@ package com.honchar.orphan;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.honchar.hibernate.util.SessionUtil;
 import org.testng.annotations.Test;
 import java.util.List;
 import static org.testng.Assert.assertEquals;
@@ -15,7 +16,7 @@ public class OrphanRemovalTest {
 
         try (Session session = SessionUtil.getSession()) {
             Transaction tx = session.beginTransaction();
-            Library library = session.load(Library.class, id);
+            Library library = session.getReference(Library.class, id);
             assertEquals(library.getBooks().size(), 3);
             library.getBooks().remove(0);
             assertEquals(library.getBooks().size(), 2);
@@ -24,7 +25,7 @@ public class OrphanRemovalTest {
 
         try (Session session = SessionUtil.getSession()) {
             Transaction tx = session.beginTransaction();
-            Library libraryTwo = session.load(Library.class, id);
+            Library libraryTwo = session.getReference(Library.class, id);
             assertEquals(libraryTwo.getBooks().size(), 2);
             Query<Book> query = session.createQuery("from Book b", Book.class);
             List<Book> books = query.list();
@@ -39,7 +40,7 @@ public class OrphanRemovalTest {
 
         try (Session session = SessionUtil.getSession()) {
             Transaction tx = session.beginTransaction();
-            Library library = session.load(Library.class, id);
+            Library library = session.getReference(Library.class, id);
             assertEquals(library.getBooks().size(), 3);
             session.delete(library);
             tx.commit();
@@ -61,21 +62,21 @@ public class OrphanRemovalTest {
             Transaction tx = session.beginTransaction();
             library = new Library();
             library.setName("orphanLib");
-            session.save(library);
+            session.persist(library);
             Book book = new Book();
             book.setLibrary(library);
             book.setTitle("book 1");
-            session.save(book);
+            session.persist(book);
             library.getBooks().add(book);
             book = new Book();
             book.setLibrary(library);
             book.setTitle("book 2");
-            session.save(book);
+            session.persist(book);
             library.getBooks().add(book);
             book = new Book();
             book.setLibrary(library);
             book.setTitle("book 3");
-            session.save(book);
+            session.persist(book);
             library.getBooks().add(book);
             tx.commit();
         }

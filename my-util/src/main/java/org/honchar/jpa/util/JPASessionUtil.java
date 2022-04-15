@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class JPASessionUtil {
-    private static Map<String, EntityManagerFactory>
+    private static final Map<String, EntityManagerFactory>
             persistenceUnits = new HashMap<>();
 
     @SuppressWarnings("WeakerAccess")
