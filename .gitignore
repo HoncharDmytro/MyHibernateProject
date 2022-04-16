@@ -1,7 +1,7 @@
 # Project exclude paths
 /ChapterOne/target/
 /.idea/
-/.iml/
+/*.iml/
 /target/
 */target/**
 pom.xml.tag
