@@ -16,6 +16,7 @@
         <module>my-util</module>
         <module>ChapterFour</module>
         <module>ChapterSix</module>
+        <module>ChapterSeven</module>
     </modules>
 
     <properties>

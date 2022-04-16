@@ -1,0 +1,103 @@
+package com.honchar.naturalid;
+
+import org.hibernate.ObjectNotFoundException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.honchar.hibernate.util.SessionUtil;
+import org.testng.annotations.Test;
+import static org.testng.Assert.*;
+
+public class NaturalIdTest extends IdTestBase {
+    @Test
+    public void testSimpleNaturalId() {
+        Integer id = createSimpleEmployee("Sorhed", 5401).getId();
+        try (Session session = SessionUtil.getSession()) {
+            Transaction tx = session.beginTransaction();
+            SimpleNaturalIdEmployee employee = session
+                            .byId(SimpleNaturalIdEmployee.class)
+                            .load(id);
+            assertNotNull(employee);
+            SimpleNaturalIdEmployee badgedEmployee = session
+                            .bySimpleNaturalId(SimpleNaturalIdEmployee.class)
+                            .load(5401);
+            assertEquals(badgedEmployee, employee);
+            tx.commit();
+        }
+    }
+    @Test
+    public void testLoadByNaturalId() {
+        Employee initial = createEmployee("Arrowroot", 11, 291);
+        try (Session session = SessionUtil.getSession()) {
+            Transaction tx = session.beginTransaction();
+            Employee arrowroot = session
+                    .byNaturalId(Employee.class)
+                    .using("section", 11)
+                    .using("department", 291)
+                    .load();
+            assertNotNull(arrowroot);
+            assertEquals(initial, arrowroot);
+            tx.commit();
+        }
+    }
+    @Test
+    public void testGetByNaturalId() {
+        Employee initial = createEmployee("Eorwax", 11, 292);
+        try (Session session = SessionUtil.getSession()) {
+            Transaction tx = session.beginTransaction();
+            Employee eorwax = session
+                    .byNaturalId(Employee.class)
+                    .using("section", 11)
+                    .using("department", 292)
+                    .getReference();
+            System.out.println(initial.equals(eorwax));
+            assertEquals(initial, eorwax);
+            tx.commit();
+        }
+    }
+    @Test
+    public void testLoadById() {
+        Integer id = createEmployee("Legolam", 10, 289).getId();
+        try (Session session = SessionUtil.getSession()) {
+            Transaction tx = session.beginTransaction();
+            Employee boggit = session
+                    .byId(Employee.class)
+                    .load(id);
+            assertNotNull(boggit);
+            session.remove(boggit);
+            tx.commit();
+        }
+        try (Session session = SessionUtil.getSession()) {
+            Transaction tx = session.beginTransaction();
+            Employee boggit = session
+                    .byId(Employee.class)
+                    .load(id);
+            assertNull(boggit);
+            tx.commit();
+        }
+    }
+    @Test
+    public void testGetById() {
+        Integer id = createEmployee("Eorache", 10, 290).getId();
+        try (Session session = SessionUtil.getSession()) {
+            Transaction tx = session.beginTransaction();
+            Employee boggit = session
+                    .byId(Employee.class)
+                    .getReference(id);
+            assertNotNull(boggit);
+            session.remove(boggit);
+            tx.commit();
+        }
+        try (Session session = SessionUtil.getSession()) {
+            Transaction tx = session.beginTransaction();
+            try {
+                Employee boggit = session
+                        .byId(Employee.class)
+                        .getReference(id);
+                boggit.getDepartment();
+                fail("Should have had an exception thrown!");
+            } catch (ObjectNotFoundException ignored) {
+            }
+            tx.commit();
+        }
+    }
+}
