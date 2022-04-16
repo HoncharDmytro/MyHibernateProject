@@ -10,9 +10,28 @@
         <property name="connection.username">root</property>
         <property name="connection.password">1111</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- set up c3p0 for use -->
+        <property name="c3p0.max_size">10</property>
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">create-drop</property>
+        <property name="hbm2ddl.auto">create</property>
+        <mapping class="com.honchar.primarykey.after.Book"/>
+        <mapping class="com.honchar.compoundpk.CPKBook"/>
+        <mapping class="com.honchar.compoundpk.EmbeddedPKBook"/>
+        <mapping class="com.honchar.compoundpk.IdClassBook"/>
+        <mapping class="com.honchar.twotables.Customer"/>
+        <mapping class="com.honchar.mapped.ComputerBook"/>
+        <mapping class="com.honchar.naturalid.Employee"/>
+        <mapping class="com.honchar.naturalid.SimpleNaturalIdEmployee"/>
+        <mapping class="com.honchar.embedded.User"/>
+        <mapping class="com.honchar.embedded.EBook"/>
+        <mapping class="com.honchar.embedded.Author"/>
+        <mapping class="com.honchar.single.Book"/>
+        <mapping class="com.honchar.single.ComputerBook"/>
+        <mapping class="com.honchar.joined.Book"/>
+        <mapping class="com.honchar.joined.ComputerBook"/>
+        <mapping class="com.honchar.perclass.Book"/>
+        <mapping class="com.honchar.perclass.ComputerBook"/>
     </session-factory>
 </hibernate-configuration>

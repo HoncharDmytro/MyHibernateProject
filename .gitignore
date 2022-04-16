@@ -1,6 +1,7 @@
 # Project exclude paths
 /ChapterOne/target/
 /.idea/
+/.iml/
 /target/
 */target/**
 pom.xml.tag
@@ -20,4 +21,3 @@ buildNumber.properties
 /ChapterThree/${project.build.directory}/
 /ChapterTwo/target/
 /my-util/target/
-
