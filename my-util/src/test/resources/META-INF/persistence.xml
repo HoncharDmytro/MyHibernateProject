@@ -2,23 +2,22 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="http://java.sun.com/xml/ns/persistence"
     xsi:schemaLocation="
-    http://java.sun.com/xml/ns/persistence
-    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+        http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
     version="2.0">
-    <persistence-unit name="some-name">
-        <description>persistence.xml used to work with Java's built-in jpa implementation: EntityManager(
-            watch "https://www.baeldung.com/hibernate-entitymanager")
-        </description>
-
+    <persistence-unit name="utiljpa">
+<!--        <description>persistence.xml used to work with Java's built-in jpa implementation: EntityManager(-->
+<!--            watch "https://www.baeldung.com/hibernate-entitymanager")-->
+<!--        </description>-->
         <properties>
+            <property name="jakarta.persistence.jdbc.driver" value = "com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value = "jdbc:mysql://localhost:3306/testHibernateBase"/>
+            <property name="jakarta.persistence.jdbc.user" value = "root"/>
+            <property name="jakarta.persistence.jdbc.password" value = "1111"/>
             <property name="hibernate.dialect" value = "org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.connection.driver_class" value = "com.mysql.cj.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value = "root"/>
-            <property name="hibernate.connection.password" value = "1111"/>
-            <property name="hibernate.connection.url" value = "jdbc:mysql://localhost:3306/testHibernateBase"/>
-            <property name="connection_pool_size" value = "3"/>
             <property name="show_sql" value = "true"/>
+<!--            <property name="connection_pool_size" value = "3"/>-->
         </properties>
     </persistence-unit>
 </persistence>
