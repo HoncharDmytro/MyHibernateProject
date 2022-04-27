@@ -10,13 +10,13 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>ChapterOne</module>
-        <module>ChapterTwo</module>
-        <module>ChapterThree</module>
+        <module>Chapter1</module>
+        <module>Chapter2</module>
+        <module>Chapter3</module>
         <module>my-util</module>
-        <module>ChapterFour</module>
-        <module>ChapterSix</module>
-        <module>ChapterSeven</module>
+        <module>Chapter4</module>
+        <module>Chapter6</module>
+        <module>Chapter7</module>
     </modules>
 
     <properties>
@@ -44,7 +44,6 @@
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
-
 
             <dependency>
                 <groupId>org.hibernate.orm</groupId>
@@ -113,10 +112,10 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>ch.qos.logback</groupId>-->
+<!--            <artifactId>logback-classic</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.testng</groupId>

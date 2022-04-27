@@ -11,9 +11,9 @@ public class JPASessionUtil {
     private static Map<String, EntityManagerFactory> persistenceUnits = new HashMap<>();
 
     @SuppressWarnings("WeakerAccess")
-    public static synchronized EntityManager
-    getEntityManager(String persistenceUnitName) {
-        persistenceUnits.putIfAbsent(persistenceUnitName, Persistence.createEntityManagerFactory(persistenceUnitName));
+    public static synchronized EntityManager getEntityManager(String persistenceUnitName) {
+        persistenceUnits.putIfAbsent(persistenceUnitName,
+                Persistence.createEntityManagerFactory(persistenceUnitName));
         return persistenceUnits.get(persistenceUnitName).createEntityManager();
     }
 
