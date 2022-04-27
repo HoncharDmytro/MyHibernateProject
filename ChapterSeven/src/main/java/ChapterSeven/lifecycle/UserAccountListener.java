@@ -9,8 +9,6 @@ public class UserAccountListener {
         if (ua.getSalt() == null || ua.getSalt() == 0) {
             ua.setSalt((int) (Math.random() * 65535));
         }
-        ua.setPasswordHash(
-                ua.getPassword().hashCode() * ua.getSalt()
-        );
+        ua.setPasswordHash(ua.getPassword().hashCode() * ua.getSalt());
     }
 }

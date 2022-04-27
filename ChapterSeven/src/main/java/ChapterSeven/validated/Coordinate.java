@@ -15,7 +15,7 @@ import jakarta.validation.constraints.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//@NoQuadrantIII
+@NoQuadrantIII
 public class Coordinate {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

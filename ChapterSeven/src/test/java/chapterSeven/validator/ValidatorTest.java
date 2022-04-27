@@ -24,11 +24,9 @@ public class ValidatorTest {
         try (Session session = SessionUtil.getSession()) {
             Transaction transaction = session.beginTransaction();
             UnvalidatedSimplePerson person = new UnvalidatedSimplePerson();
-            person.setAge(12); // underage for system
+            person.setAge(12);
             person.setFname("Johnny");
             person.setLname("McYoungster");
-// this succeeds because the UnvalidatedSimplePerson
-// has no validation in place.
             session.persist(person);
             id = person.getId();
             transaction.commit();
