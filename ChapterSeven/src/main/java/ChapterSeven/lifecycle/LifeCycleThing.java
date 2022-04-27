@@ -10,7 +10,7 @@ import java.util.BitSet;
 @Data
 public class LifeCycleThing {
     static Logger logger = LoggerFactory.getLogger(LifeCycleThing.class);
-    static BitSet lifecycleCalls = new BitSet();
+    static BitSet lifeCycleCalls = new BitSet();
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
@@ -45,7 +45,7 @@ public class LifeCycleThing {
         log("postRemove", 6);
     }
     private void log(String method, int index) {
-        lifecycleCalls.set(index, true);
+        lifeCycleCalls.set(index, true);
         logger.info("{}: {} {}", method,
                 this.getClass().getSimpleName(), this);
     }

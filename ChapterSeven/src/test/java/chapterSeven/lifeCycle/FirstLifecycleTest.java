@@ -12,7 +12,7 @@ public class FirstLifecycleTest {
     public void testLifecycle() {
         Integer id;
         LifeCycleThing thing1, thing2, thing3;
-        try (Session session = JPASessionUtil.getSession("chapter07")) {
+        try (Session session = JPASessionUtil.getSession("chapterSeven")) {
             Transaction tx = session.beginTransaction();
             thing1 = new LifeCycleThing();
             thing1.setName("Thing 1");
@@ -21,7 +21,7 @@ public class FirstLifecycleTest {
             System.out.println(thing1);
             tx.commit();
         }
-        try (Session session = JPASessionUtil.getSession("chapter07")) {
+        try (Session session = JPASessionUtil.getSession("chapterSeven")) {
             Transaction tx = session.beginTransaction();
             thing2 = session
                     .byId(LifeCycleThing.class)
@@ -35,7 +35,7 @@ public class FirstLifecycleTest {
             thing2.setName("Thing 2");
             tx.commit();
         }
-        try (Session session = JPASessionUtil.getSession("chapter07")) {
+        try (Session session = JPASessionUtil.getSession("chapterSeven")) {
             Transaction tx = session.beginTransaction();
             thing3 = session
                     .byId(LifeCycleThing.class)
@@ -45,6 +45,6 @@ public class FirstLifecycleTest {
             session.remove(thing3);
             tx.commit();
         }
-        assertEquals(LifeCycleThing.lifecycleCalls.nextClearBit(0), 7);
+        assertEquals(LifeCycleThing.lifeCycleCalls.nextClearBit(0), 7);
     }
 }

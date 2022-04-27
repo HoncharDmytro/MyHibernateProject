@@ -3,4 +3,5 @@ module ChapterSeven {
     requires lombok;
     requires org.slf4j;
     requires jakarta.persistence;
+    requires jakarta.validation;
 }
