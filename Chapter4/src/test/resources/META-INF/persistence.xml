@@ -1,0 +1,33 @@
+<persistence>
+    <persistence-unit name="some-name">
+        <description>persistence.xml used to work with Java's built-in jpa implementation: EntityManager(
+            watch "https://www.baeldung.com/hibernate-entitymanager")
+        </description>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+            <property name="hibernate.connection.username">root</property>
+            <property name="hibernate.connection.password">1111</property>
+            <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testHibernateBase</property>
+            <property name="connection_pool_size">3</property>
+            <property name="show_sql">false</property>
+            <property name="hbm2ddl.auto">create-drop</property>
+        </properties>
+
+        <mapping class="com.honchar.broken.Email"/>
+        <mapping class="com.honchar.broken.Message"/>
+        <mapping class="com.honchar.mapped.Email"/>
+        <mapping class="com.honchar.mapped.Message"/>
+        <mapping class="com.honchar.id.GeneratedAutoIdentity"/>
+        <mapping class="com.honchar.id.GeneratedIdentityIdentity"/>
+        <mapping class="com.honchar.id.GeneratedTableIdentity"/>
+        <mapping class="com.honchar.id.GeneratedSequenceIdentity"/>
+        <mapping class="com.honchar.id.NongeneratedIdentity"/>
+        <mapping class="com.honchar.model.SimpleObject"/>
+        <mapping class="com.honchar.orphan.Library"/>
+        <mapping class="com.honchar.orphan.Book"/>
+    </persistence-unit>
+</persistence>
