@@ -1,8 +1,8 @@
 package com.honchar.broken;
 
-import org.honchar.hibernate.util.SessionUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.honchar.hibernate.util.SessionUtil;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 

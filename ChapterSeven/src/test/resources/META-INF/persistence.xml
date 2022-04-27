@@ -11,7 +11,7 @@
             <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
             <property name="hibernate.connection.username">root</property>
             <property name="hibernate.connection.password">1111</property>
-            <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dbName</property>
+            <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testHibernateBase</property>
             <property name="connection_pool_size">10</property>
             <property name="show_sql">true</property>
         </properties>

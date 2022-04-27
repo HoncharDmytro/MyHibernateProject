@@ -16,7 +16,7 @@ public class SessionUtil {
     private static final SessionUtil instance = new SessionUtil();
     private static final String CONFIG_NAME = "/configuration.properties";
     private SessionFactory factory;
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private SessionUtil() {
         initialize();
