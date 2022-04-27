@@ -1,4 +1,4 @@
-package ChapterSeven.lifecycle;
+package chapterSeven.lifeCycle;
 
 import lombok.Data;
 import org.slf4j.Logger;
@@ -8,8 +8,8 @@ import java.util.BitSet;
 
 @Entity
 @Data
-public class LifecycleThing {
-    static Logger logger = LoggerFactory.getLogger(LifecycleThing.class);
+public class LifeCycleThing {
+    static Logger logger = LoggerFactory.getLogger(LifeCycleThing.class);
     static BitSet lifecycleCalls = new BitSet();
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
