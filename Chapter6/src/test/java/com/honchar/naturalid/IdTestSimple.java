@@ -12,16 +12,12 @@ public class IdTestSimple extends IdTestBase {
     @Test
     public void testSimpleNaturalId() {
         Integer id = createSimpleEmployee("Sorhed", 5401).getId();
+
         try (Session session = SessionUtil.getSession()) {
             Transaction tx = session.beginTransaction();
-            SimpleNaturalIdEmployee employee =
-                    session
-                            .byId(SimpleNaturalIdEmployee.class)
-                            .load(id);
+            SimpleNaturalIdEmployee employee = session.byId(SimpleNaturalIdEmployee.class).load(id);
             assertNotNull(employee);
-            SimpleNaturalIdEmployee badgedEmployee =
-                    session
-                            .bySimpleNaturalId(SimpleNaturalIdEmployee.class)
+            SimpleNaturalIdEmployee badgedEmployee = session.bySimpleNaturalId(SimpleNaturalIdEmployee.class)
                             .load(5401);
             assertEquals(badgedEmployee, employee);
             tx.commit();

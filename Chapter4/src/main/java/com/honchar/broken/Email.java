@@ -9,7 +9,7 @@ public class Email {
     Long id;
     @Column
     String subject;
-    @OneToOne(mappedBy = "email")
+    @OneToOne//(mappedBy = "email")
     Message message;
 
     public Email() {

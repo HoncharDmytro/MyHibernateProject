@@ -21,16 +21,18 @@ public class IdClassBook {
     int checkdigit;
     String name;
 
-    public IdClassBook() {}
+    public IdClassBook() {
+    }
 
     static class EmbeddedISBN implements Serializable {
-        @Column(name = "group_number")
         int group;
         int publisher;
         int title;
-        int checkDigit;
+        int checkdigit;
 
-        public EmbeddedISBN() {}
+        public EmbeddedISBN() {
+        }
+        //end::preamble[]
 
         public int getGroup() {
             return group;
@@ -56,23 +58,27 @@ public class IdClassBook {
             this.title = title;
         }
 
-        public int getCheckDigit() {
-            return checkDigit;
+        public int getCheckdigit() {
+            return checkdigit;
         }
 
-        public void setCheckDigit(int checkdigit) {
-            this.checkDigit = checkdigit;
+        public void setCheckdigit(int checkdigit) {
+            this.checkdigit = checkdigit;
         }
 
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
             if (!(o instanceof ISBN)) return false;
+
             ISBN isbn = (ISBN) o;
-            if (checkDigit != isbn.checkDigit) return false;
+
+            if (checkdigit != isbn.checkDigit) return false;
             if (group != isbn.group) return false;
             if (publisher != isbn.publisher) return false;
-            return title == isbn.title;
+            if (title != isbn.title) return false;
+
+            return true;
         }
 
         @Override
@@ -80,8 +86,48 @@ public class IdClassBook {
             int result = group;
             result = 31 * result + publisher;
             result = 31 * result + title;
-            result = 31 * result + checkDigit;
+            result = 31 * result + checkdigit;
             return result;
         }
+    }
+
+    public int getGroup() {
+        return group;
+    }
+
+    public void setGroup(int group) {
+        this.group = group;
+    }
+
+    public int getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(int publisher) {
+        this.publisher = publisher;
+    }
+
+    public int getTitle() {
+        return title;
+    }
+
+    public void setTitle(int title) {
+        this.title = title;
+    }
+
+    public int getCheckdigit() {
+        return checkdigit;
+    }
+
+    public void setCheckdigit(int checkdigit) {
+        this.checkdigit = checkdigit;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

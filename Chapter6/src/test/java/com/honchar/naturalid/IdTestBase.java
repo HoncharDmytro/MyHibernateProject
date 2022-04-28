@@ -11,14 +11,16 @@ public class IdTestBase {
         SimpleNaturalIdEmployee employee = new SimpleNaturalIdEmployee();
         employee.setName(name);
         employee.setBadge(badge);
-        employee.setRoyalty(10.2385);
+        employee.setRoyalty(12.3456789);
+
         try (Session session = SessionUtil.getSession()) {
             Transaction tx = session.beginTransaction();
-            session.persist(employee);
+            session.save(employee);
             tx.commit();
         }
         return employee;
     }
+
     protected Employee createEmployee(
             String name,
             int section,
@@ -30,7 +32,7 @@ public class IdTestBase {
         employee.setSection(section);
         try (Session session = SessionUtil.getSession()) {
             Transaction tx = session.beginTransaction();
-            session.persist(employee);
+            session.save(employee);
             tx.commit();
         }
         return employee;

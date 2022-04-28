@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 import org.testng.annotations.Test;
 
 public class RefreshTest {
-    @Test
+    //@Test
     public void testRefresh() {
         Long id;
 

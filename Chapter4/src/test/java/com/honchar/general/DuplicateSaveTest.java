@@ -9,7 +9,7 @@ import java.util.List;
 import static org.testng.Assert.*;
 
 public class DuplicateSaveTest {
-    @Test
+    //@Test
     public void duplicateSaveTest() {
         Long id;
         SimpleObject obj;

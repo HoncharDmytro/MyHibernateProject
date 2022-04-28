@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 import org.testng.annotations.Test;
 
 public class MergeTest {
-    @Test
+    //@Test
     public void testMerge() {
         Long id;
         

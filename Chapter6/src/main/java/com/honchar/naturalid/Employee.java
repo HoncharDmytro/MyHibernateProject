@@ -1,10 +1,10 @@
 package com.honchar.naturalid;
 
+import org.hibernate.annotations.NaturalId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import org.hibernate.annotations.NaturalId;
 
 @Entity
 public class Employee {
@@ -19,6 +19,7 @@ public class Employee {
 
     public Employee() {
     }
+    //end::preamble[]
 
     public Integer getId() {
         return id;

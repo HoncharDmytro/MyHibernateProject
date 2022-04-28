@@ -9,7 +9,7 @@ import java.util.List;
 import static org.testng.Assert.*;
 
 public class SaveOrUpdateTest {
-    @Test
+    //@Test
     public void testSaveOrUpdateEntity() {
         Long id;
         SimpleObject obj;

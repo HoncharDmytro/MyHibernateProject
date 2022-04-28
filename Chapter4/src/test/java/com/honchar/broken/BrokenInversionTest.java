@@ -21,7 +21,7 @@ public class BrokenInversionTest {
             message = new Message("BrokenMes");
 
             email.setMessage(message);
-            message.setEmail(email);
+            //message.setEmail(email);
 
             session.save(email);
             session.save(message);

@@ -12,7 +12,8 @@ public class SimpleObject {
     @Column
     Long value;
 
-    public SimpleObject() {}
+    public SimpleObject() {
+    }
 
     public Long getId() {
         return id;
@@ -47,20 +48,14 @@ public class SimpleObject {
                 '}';
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        SimpleObject that = (SimpleObject) o;
-//        return Objects.equals(id, that.id) && Objects.equals(key, that.key) &&
-//                Objects.equals(value, that.value);
-//    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof SimpleObject)) return false;
+
         SimpleObject that = (SimpleObject) o;
-    // we prefer the method versions of accessors, because of Hibernate's proxies.
+
+        // we prefer the method versions of accessors, because of Hibernate's proxies.
         if (getId() != null
                 ? !getId().equals(that.getId())
                 : that.getId() != null)
@@ -74,10 +69,6 @@ public class SimpleObject {
                 : that.getValue() == null;
     }
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, key, value);
-//    }
     @Override
     public int hashCode() {
         int result = getId() != null ? getId().hashCode() : 0;

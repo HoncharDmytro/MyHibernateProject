@@ -1,9 +1,8 @@
 package com.honchar.naturalid;
 
 import org.hibernate.annotations.NaturalId;
-import jakarta.persistence.*;
 
-import java.util.Objects;
+import jakarta.persistence.*;
 
 @Entity
 public class SimpleNaturalIdEmployee {
@@ -13,10 +12,12 @@ public class SimpleNaturalIdEmployee {
     @NaturalId
     Integer badge;
     String name;
-    @Column(scale=2,precision=5,nullable=false)
+    @Column(precision=2, scale=0, nullable=false)//!!!!!!!!!!!!!!!!!
     double royalty;
 
-    public SimpleNaturalIdEmployee() {}
+    public SimpleNaturalIdEmployee() {
+    }
+    //end::preamble[]
 
     public Integer getId() {
         return id;
@@ -51,6 +52,28 @@ public class SimpleNaturalIdEmployee {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SimpleNaturalIdEmployee)) return false;
+
+        SimpleNaturalIdEmployee that = (SimpleNaturalIdEmployee) o;
+
+        if (badge != null ? !badge.equals(that.badge) : that.badge != null) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (badge != null ? badge.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "SimpleNaturalIdEmployee{" +
                 "id=" + id +
@@ -58,19 +81,5 @@ public class SimpleNaturalIdEmployee {
                 ", name='" + name + '\'' +
                 ", royalty=" + royalty +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SimpleNaturalIdEmployee that = (SimpleNaturalIdEmployee) o;
-        return Double.compare(that.royalty, royalty) == 0 && id.equals(that.id) && badge.equals(that.badge)
-                && name.equals(that.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, badge, name, royalty);
     }
 }
