@@ -15,17 +15,17 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create-drop</property>
 
-<!--        <mapping class="com.honchar.broken.Email"/>-->
-<!--        <mapping class="com.honchar.broken.Message"/>-->
-<!--        <mapping class="com.honchar.mapped.Email"/>-->
-<!--        <mapping class="com.honchar.mapped.Message"/>-->
-<!--        <mapping class="com.honchar.id.GeneratedAutoIdentity"/>-->
-<!--        <mapping class="com.honchar.id.GeneratedIdentityIdentity"/>-->
-<!--        <mapping class="com.honchar.id.GeneratedTableIdentity"/>-->
-<!--        <mapping class="com.honchar.id.GeneratedSequenceIdentity"/>-->
-<!--        <mapping class="com.honchar.id.NongeneratedIdentity"/>-->
+        <mapping class="com.honchar.broken.Email"/>
+        <mapping class="com.honchar.broken.Message"/>
+        <mapping class="com.honchar.mapped.Email"/>
+        <mapping class="com.honchar.mapped.Message"/>
+        <mapping class="com.honchar.id.GeneratedAutoIdentity"/>
+        <mapping class="com.honchar.id.GeneratedIdentityIdentity"/>
+        <mapping class="com.honchar.id.GeneratedTableIdentity"/>
+        <mapping class="com.honchar.id.GeneratedSequenceIdentity"/>
+        <mapping class="com.honchar.id.NongeneratedIdentity"/>
         <mapping class="com.honchar.model.SimpleObject"/>
-<!--        <mapping class="com.honchar.orphan.Library"/>-->
-<!--        <mapping class="com.honchar.orphan.Book"/>-->
+        <mapping class="com.honchar.orphan.Library"/>
+        <mapping class="com.honchar.orphan.Book"/>
     </session-factory>
 </hibernate-configuration>

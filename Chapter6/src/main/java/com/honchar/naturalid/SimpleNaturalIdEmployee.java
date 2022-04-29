@@ -12,7 +12,7 @@ public class SimpleNaturalIdEmployee {
     @NaturalId
     Integer badge;
     String name;
-    @Column(precision=2, scale=0, nullable=false)//!!!!!!!!!!!!!!!!!
+    @Column(columnDefinition = "decimal(5, 2)", nullable=false)//precision = 5, scale = 2 NOT WORK!!!!!!!!!!!!!!!!!
     double royalty;
 
     public SimpleNaturalIdEmployee() {
