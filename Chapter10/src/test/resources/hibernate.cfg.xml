@@ -16,7 +16,10 @@
         <property name="show_sql">true</property>
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
-<!--        <mapping class="chapterSeven.lifeCycle.LifeCycleThing"/>-->
+
+        <mapping class="com.honchar.userrole.User1"/>
+        <mapping class="com.honchar.userrole.Role1"/>
+        <mapping class="com.honchar.model.User"/>
     </session-factory>
 </hibernate-configuration>
 
