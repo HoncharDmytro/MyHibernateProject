@@ -34,7 +34,7 @@ public class CoordinateTest {
         Coordinate c = Coordinate.builder().x(x).y(y).build();
         persist(c);
     }
-    @Test(expectedExceptions = ConstraintViolationException.class)
+    @Test(expectedExceptions = ConstraintViolationException.class)//!!!!!!!!!!!!!Expected exception test!!!!!!!!
     public void testInvalidCoordinate() {
         testValidCoordinate(-1, -1);
     }

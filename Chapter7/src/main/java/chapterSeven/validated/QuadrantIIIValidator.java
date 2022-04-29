@@ -8,10 +8,7 @@ public class QuadrantIIIValidator implements ConstraintValidator<NoQuadrantIII, 
     public void initialize(NoQuadrantIII constraintAnnotation) {
     }
     @Override
-    public boolean isValid(
-            Coordinate value,
-            ConstraintValidatorContext context
-    ) {
+    public boolean isValid(Coordinate value, ConstraintValidatorContext context) {
         return !(value.getX() < 0 && value.getY() < 0);
     }
 }

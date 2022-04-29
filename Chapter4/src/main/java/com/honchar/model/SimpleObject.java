@@ -2,15 +2,17 @@ package com.honchar.model;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 public class SimpleObject {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
     @Column
-    String key;
+    private String key;
     @Column
-    Long value;
+    private Long value;
 
     public SimpleObject() {
     }

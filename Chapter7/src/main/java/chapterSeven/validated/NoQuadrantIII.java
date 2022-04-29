@@ -10,6 +10,8 @@ import java.lang.annotation.*;
 @Documented
 public @interface NoQuadrantIII {
     String message() default "Failed quadrant III test";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

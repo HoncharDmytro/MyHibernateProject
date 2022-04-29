@@ -17,8 +17,9 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">create</property>
         <mapping class="chapterSeven.lifeCycle.LifeCycleThing"/>
-        <mapping class="chapterSeven.lifeCycle.UserAccount"/>
-        <mapping class="chapterSeven.lifeCycle.FailingEntity"/>
+        <mapping class="chapterSeven.validated.Coordinate"/>
+        <mapping class="chapterSeven.unvalidated.UnvalidatedSimplePerson"/>
+        <mapping class="chapterSeven.validated.ValidatedPerson"/>
     </session-factory>
 </hibernate-configuration>
 

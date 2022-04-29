@@ -16,12 +16,10 @@ public class SaveLoadTest {
 
         try (Session session = SessionUtil.getSession()) {
             Transaction tx = session.beginTransaction();
-
-            obj = new SimpleObject();
-            obj.setKey("test");
-            obj.setValue(10L);
-
-            session.save(obj);
+             obj = new SimpleObject();
+            obj.setKey("aboba");
+            obj.setValue(12L);
+            session.persist(obj);
             assertNotNull(obj.getId());
             id = obj.getId();
             tx.commit();
@@ -33,13 +31,13 @@ public class SaveLoadTest {
             assertNotNull(o2.getValue());
             assertEquals(o2.getValue().longValue(), 10L);
             SimpleObject o3 = session.load(SimpleObject.class, id);
-//            assertEquals(o2, o3);
-//            assertEquals(obj, o2);
-//            assertEquals(obj, o3);
-//            assertSame(o2, o3);
-//            assertFalse(o2 == obj);
-//            assertSame(obj, o3);
-//            assertFalse(obj == o3);
+            assertEquals(o2, o3);
+            assertEquals(obj, o2);
+            assertEquals(obj, o3);
+            assertSame(o2, o3);
+            assertFalse(o2 == obj);
+            assertSame(obj, o3);
+            assertFalse(obj == o3);
         }
     }
 }

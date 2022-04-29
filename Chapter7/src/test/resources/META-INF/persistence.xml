@@ -1,22 +1,29 @@
-<persistence>
-    <persistence-unit name="utiljpa">
-        <description>persistence.xml used to work with Java's built-in jpa implementation: EntityManager(
-            watch "https://www.baeldung.com/hibernate-entitymanager")
-        </description>
-<!--        <class>com.chapterone.pojo.Message</class>-->
+<persistence         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xmlns="http://java.sun.com/xml/ns/persistence"
+                     xsi:schemaLocation="
+             http://java.sun.com/xml/ns/persistence
+              http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+                     version="2.0">
+    <persistence-unit name="chapterSeven">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+<!--        <description>persistence.xml used to work with Java's built-in jpa implementation: EntityManager(-->
+<!--            watch "https://www.baeldung.com/hibernate-entitymanager")-->
+<!--        </description>-->
+        <class>chapterSeven.lifeCycle.LifeCycleThing</class>
+        <class>chapterSeven.validated.Coordinate</class>
+        <class>chapterSeven.unvalidated.UnvalidatedSimplePerson</class>
+        <class>chapterSeven.validated.ValidatedPerson</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
-            <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-            <property name="hibernate.connection.username">root</property>
-            <property name="hibernate.connection.password">1111</property>
-            <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testHibernateBase</property>
-            <property name="connection_pool_size">10</property>
-            <property name="show_sql">true</property>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="1111"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/testHibernateBase"/>
+            <property name="connection_pool_size" value="10"/>
+            <property name="show_sql" value="true"/>
         </properties>
-        <class>chapterSeven.lifeCycle.LifeCycleThing</class>
-        <class>chapterSeven.lifeCycle.UserAccount</class>
-        <class>chapterSeven.lifeCycle.FailingEntity</class>
+
     </persistence-unit>
 </persistence>
