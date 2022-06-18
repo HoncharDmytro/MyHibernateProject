@@ -13,7 +13,6 @@
         <module>Chapter1</module>
         <module>Chapter2</module>
         <module>Chapter3</module>
-        <module>my-util</module>
         <module>Chapter4</module>
         <module>Chapter6</module>
         <module>Chapter7</module>
@@ -21,6 +20,10 @@
         <module>Chapter9</module>
         <module>Chapter10</module>
         <module>Chapter11</module>
+        <module>Chapter11</module>
+        <module>Chapter12</module>
+        <module>Chapter13</module>
+        <module>my-util</module>
     </modules>
 
     <properties>
