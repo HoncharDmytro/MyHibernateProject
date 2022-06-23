@@ -12,12 +12,6 @@
     <artifactId>Chapter7</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.honchar.hibernate</groupId>
-            <artifactId>my-util</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
